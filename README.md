@@ -5,3 +5,13 @@ Followed Josean Youtube
 
 ### Folder path
 `~/.config/nvim`
+
+### Tips
+Handle Cmd-k issue in Iterm2
+- Configure Iterm2
+  - Preferences -> Keys -> + (add new global shortcut)
+  - Keyboard shortcut: ⌘+k
+  - Action: Send text
+  - value:
+    - clear\n
+
