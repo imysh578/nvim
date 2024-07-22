@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
+    "simrat39/rust-tools.nvim",
   },
   config = function()
     -- import lspconfig plugin
@@ -15,6 +16,9 @@ return {
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+    -- import rust-tools plugin
+    local rust_tools = require("rust-tools")
 
     local keymap = vim.keymap -- for conciseness
 
@@ -128,6 +132,22 @@ return {
                 callSnippet = "Replace",
               },
             },
+          },
+        })
+      end,
+      ["rust_analyzer"] = function()
+        rust_tools.setup({
+          server = {
+            capabilities = capabilities,
+            on_attach = function(clinet, bufnr)
+              -- Additional Rust-specific keybindings
+              local opts = { buffer = bufnr, silent = true }
+              opts.desc = "Rust Hover Actions"
+              keymap.set("n", "<leader>rh", rust_tools.hover_actions.hover_actions, opts)
+
+              opts.desc = "Rust Code Action Groups"
+              keymap.set("n", "<leader>rca", rust_tools.code_action_group.code_action_group, opts)
+            end,
           },
         })
       end,
