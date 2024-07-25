@@ -46,7 +46,7 @@ return {
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
-            luasnip.exapnd_or_jump()
+            luasnip.expand_or_jump()
           else
             fallback()
           end
