@@ -22,3 +22,12 @@ keymap.set("n", "<leader>tw", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tj", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tk", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- text management
+keymap.set("n", "<C-A>", "ggVG", { desc = "Select All text in the current file" })
+keymap.set("n", "<leader>rr", ":%s//g<Left><Left>", { desc = "Find and Replace text in the current file" })
+
+keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line up(n)" }) -- move line up(n)
+keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line down(n)" }) -- move line down(n)
+keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line up(v)" }) -- move line up(v)
+keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line down(v)" }) -- move line down(v)
