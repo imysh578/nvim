@@ -8,7 +8,7 @@ return {
         "<leader>Tf",
         function()
           local count = vim.v.count1
-          require("toggleterm").toggle(count, 0, LazyVim.root.get(), "float")
+          require("toggleterm").toggle(count, 0, nil, "float")
         end,
         desc = "ToggleTerm (float root_dir)",
       },
@@ -16,7 +16,7 @@ return {
         "<leader>Th",
         function()
           local count = vim.v.count1
-          require("toggleterm").toggle(count, 15, LazyVim.root.get(), "horizontal")
+          require("toggleterm").toggle(count, 15, nil, "horizontal")
         end,
         desc = "ToggleTerm (horizontal root_dir)",
       },
@@ -24,7 +24,7 @@ return {
         "<leader>Tv",
         function()
           local count = vim.v.count1
-          require("toggleterm").toggle(count, vim.o.columns * 0.4, LazyVim.root.get(), "vertical")
+          require("toggleterm").toggle(count, vim.o.columns * 0.4, nil, "vertical")
         end,
         desc = "ToggleTerm (vertical root_dir)",
       },
@@ -41,7 +41,7 @@ return {
       {
         "<leader>Tt",
         function()
-          require("toggleterm").toggle(1, 100, LazyVim.root.get(), "tab")
+          require("toggleterm").toggle(1, 100, nil, "tab")
         end,
         desc = "ToggleTerm (tab root_dir)",
       },
@@ -63,7 +63,9 @@ return {
         end
       end,
       open_mapping = [[<c-\>]],
-      -- on_open = fun(t: Terminal), -- function to run when the terminal opens
+      on_open = function(term)
+        vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<C-|>", [[<C-\><C-n>]], { noremap = true, silent = true })
+      end,
       -- on_close = fun(t: Terminal), -- function to run when the terminal closes
       -- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
       -- on_stderr = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stderr
