@@ -1,2 +1,2 @@
-require("sokuri.core")
-require("sokuri.lazy")
+require("sokuri.config.init")
+require("sokuri.config.lazy")
