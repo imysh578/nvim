@@ -14,6 +14,7 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    "mlaursen/vim-react-snippets",
   },
   config = function()
     local cmp = require("cmp")
@@ -24,6 +25,7 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
+    require("vim-react-snippets").lazy_load()
 
     cmp.setup({
       completion = {
