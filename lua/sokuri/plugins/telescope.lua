@@ -19,6 +19,8 @@ return {
           "node_modules",
           "package-lock.json",
           "build",
+          "yarn.lock",
+          "dist",
 
           -- Rust
           "debug/",
