@@ -14,6 +14,32 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "smart" },
+        file_ignore_patterns = {
+          -- JS
+          "node_modules",
+          "package-lock.json",
+          "build",
+
+          -- Rust
+          "debug/",
+          "target/",
+          "Cargo.lock",
+          "**/*.rs.bk",
+          "*.pdb",
+
+          -- Go
+          "*.exe",
+          "*.exe~",
+          "*.dll",
+          "*.so",
+          "*.dylib",
+          "*.test",
+          "*out",
+          "go.work",
+          "go.work.sum",
+
+          ".env",
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
