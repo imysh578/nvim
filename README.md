@@ -23,3 +23,6 @@ Handle Cmd-k issue in Iterm2
 ### Others
 
 1. vimium : a useful extension for clicking browser elements without mouse
+2. font-hack-nerd-font
+   - make sure to set it in the Iterm2
+   - `brew install font-hack-nerd-font`
