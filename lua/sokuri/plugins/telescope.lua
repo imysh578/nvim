@@ -17,7 +17,7 @@ return {
         file_ignore_patterns = {
           -- JS
           "node_modules",
-          "package.json",
+          -- "package.json",
           "package%-lock.json",
           "build",
           "yarn.lock",
@@ -41,7 +41,7 @@ return {
           "go.work",
           "go.work.sum",
 
-          ".env",
+          -- ".env",
         },
         mappings = {
           i = {
