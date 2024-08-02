@@ -17,7 +17,8 @@ return {
         file_ignore_patterns = {
           -- JS
           "node_modules",
-          "package-lock.json",
+          "package.json",
+          "package%-lock.json",
           "build",
           "yarn.lock",
           "dist",
