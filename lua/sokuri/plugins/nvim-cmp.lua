@@ -50,7 +50,7 @@ return {
             else
               cmp.select_next_item()
             end
-            cmp.confirm()
+            cmp.confirm({ select = false })
           -- elseif luasnip.expand_or_jumpable() then
           --   luasnip.expand_or_jump()
           else

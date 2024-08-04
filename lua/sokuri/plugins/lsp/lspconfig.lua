@@ -152,6 +152,11 @@ return {
               keymap.set("n", "<leader>rca", rust_tools.code_action_group.code_action_group, opts)
             end,
           },
+          tools = {
+            hover_actions = {
+              auto_focus = true,
+            },
+          },
           settings = {
             ["rust-analyzer"] = {
               checkOnSave = {
