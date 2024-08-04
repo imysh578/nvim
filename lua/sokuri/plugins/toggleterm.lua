@@ -71,41 +71,41 @@ return {
           [[<C-\><C-n>]],
           { noremap = true, silent = true, desc = "Exit insert mode" }
         )
-        vim.api.nvim_buf_set_keymap(
-          term.bufnr,
-          "t",
-          "JK",
-          [[<C-\><C-n>]],
-          { noremap = true, silent = true, desc = "Exit insert mode" }
-        )
-        vim.api.nvim_buf_set_keymap(
-          term.bufnr,
-          "t",
-          "<C-h>",
-          [[<Left>]],
-          { noremap = true, silent = true, desc = "Move Left in terminal mode" }
-        )
-        vim.api.nvim_buf_set_keymap(
-          term.bufnr,
-          "t",
-          "<C-j>",
-          [[<Down>]],
-          { noremap = true, silent = true, desc = "Move Down in terminal mode" }
-        )
-        vim.api.nvim_buf_set_keymap(
-          term.bufnr,
-          "t",
-          "<C-k>",
-          [[<Up>]],
-          { noremap = true, silent = true, desc = "Move Up in terminal mode" }
-        )
-        vim.api.nvim_buf_set_keymap(
-          term.bufnr,
-          "t",
-          "<C-l>",
-          [[<Right>]],
-          { noremap = true, silent = true, desc = "Mode Right in terminal mode" }
-        )
+        -- vim.api.nvim_buf_set_keymap(
+        --   term.bufnr,
+        --   "t",
+        --   "JK",
+        --   [[<C-\><C-n>]],
+        --   { noremap = true, silent = true, desc = "Exit insert mode" }
+        -- )
+        -- vim.api.nvim_buf_set_keymap(
+        --   term.bufnr,
+        --   "t",
+        --   "<C-h>",
+        --   [[<Left>]],
+        --   { noremap = true, silent = true, desc = "Move Left in terminal mode" }
+        -- )
+        -- vim.api.nvim_buf_set_keymap(
+        --   term.bufnr,
+        --   "t",
+        --   "<C-j>",
+        --   [[<Down>]],
+        --   { noremap = true, silent = true, desc = "Move Down in terminal mode" }
+        -- )
+        -- vim.api.nvim_buf_set_keymap(
+        --   term.bufnr,
+        --   "t",
+        --   "<C-k>",
+        --   [[<Up>]],
+        --   { noremap = true, silent = true, desc = "Move Up in terminal mode" }
+        -- )
+        -- vim.api.nvim_buf_set_keymap(
+        --   term.bufnr,
+        --   "t",
+        --   "<C-l>",
+        --   [[<Right>]],
+        --   { noremap = true, silent = true, desc = "Mode Right in terminal mode" }
+        -- )
       end,
       -- on_close = fun(t: Terminal), -- function to run when the terminal closes
       -- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
