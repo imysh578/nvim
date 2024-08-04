@@ -37,6 +37,11 @@ Handle Cmd-k issue in Iterm2
    - path: `~/.config/karabiner/assets/complex_modifications`
    - file name: `escape_to_en.json`
 
+```sh
+cd ~/.config/karabiner/assets/complex_modifications
+nvim escape_to_en.json
+```
+
 ```json
 {
   "title": "Convert to en when ESC",
