@@ -29,32 +29,49 @@ return {
         desc = "ToggleTerm (vertical root_dir)",
       },
       {
-        "<leader>Tn",
-        "<cmd>ToggleTermSetName<cr>",
-        desc = "Set term name",
-      },
-      {
-        "<leader>Ts",
-        "<cmd>TermSelect<cr>",
-        desc = "Select term",
-      },
-      {
-        "<leader>Tt",
+        "<leader>Th1",
         function()
-          require("toggleterm").toggle(1, 100, nil, "tab")
+          require("toggleterm").toggle(1, 15, nil, "horizontal")
         end,
-        desc = "ToggleTerm (tab root_dir)",
+        desc = "ToggleTerm 1 (horizontal)",
       },
       {
-        "<leader>TT",
+        "<leader>Th2",
         function()
-          require("toggleterm").toggle(1, 100, vim.loop.cwd(), "tab")
+          require("toggleterm").toggle(2, 15, nil, "horizontal")
         end,
-        desc = "ToggleTerm (tab cwd_dir)",
+        desc = "ToggleTerm 2 (horizontal)",
+      },
+      {
+        "<leader>Th3",
+        function()
+          require("toggleterm").toggle(3, 15, nil, "horizontal")
+        end,
+        desc = "ToggleTerm 3 (horizontal)",
+      },
+      {
+        "<leader>Tv1",
+        function()
+          require("toggleterm").toggle(1, vim.o.columns * 0.4, nil, "vertical")
+        end,
+        desc = "ToggleTerm 1 (vertical)",
+      },
+      {
+        "<leader>Tv2",
+        function()
+          require("toggleterm").toggle(2, vim.o.columns * 0.4, nil, "vertical")
+        end,
+        desc = "ToggleTerm 2 (vertical)",
+      },
+      {
+        "<leader>Tv3",
+        function()
+          require("toggleterm").toggle(3, vim.o.columns * 0.4, nil, "vertical")
+        end,
+        desc = "ToggleTerm 3 (vertical)",
       },
     },
     opts = {
-      -- size can be a number or function which is passed the current terminal
       size = function(term)
         if term.direction == "horizontal" then
           return 15
@@ -67,77 +84,27 @@ return {
         vim.api.nvim_buf_set_keymap(
           term.bufnr,
           "t",
+          "<ESC>",
+          [[<C-\><C-n>]],
+          { noremap = true, silent = true, desc = "Exit insert mode" }
+        )
+        vim.api.nvim_buf_set_keymap(
+          term.bufnr,
+          "t",
           "jk",
           [[<C-\><C-n>]],
           { noremap = true, silent = true, desc = "Exit insert mode" }
         )
-        -- vim.api.nvim_buf_set_keymap(
-        --   term.bufnr,
-        --   "t",
-        --   "JK",
-        --   [[<C-\><C-n>]],
-        --   { noremap = true, silent = true, desc = "Exit insert mode" }
-        -- )
-        -- vim.api.nvim_buf_set_keymap(
-        --   term.bufnr,
-        --   "t",
-        --   "<C-h>",
-        --   [[<Left>]],
-        --   { noremap = true, silent = true, desc = "Move Left in terminal mode" }
-        -- )
-        -- vim.api.nvim_buf_set_keymap(
-        --   term.bufnr,
-        --   "t",
-        --   "<C-j>",
-        --   [[<Down>]],
-        --   { noremap = true, silent = true, desc = "Move Down in terminal mode" }
-        -- )
-        -- vim.api.nvim_buf_set_keymap(
-        --   term.bufnr,
-        --   "t",
-        --   "<C-k>",
-        --   [[<Up>]],
-        --   { noremap = true, silent = true, desc = "Move Up in terminal mode" }
-        -- )
-        -- vim.api.nvim_buf_set_keymap(
-        --   term.bufnr,
-        --   "t",
-        --   "<C-l>",
-        --   [[<Right>]],
-        --   { noremap = true, silent = true, desc = "Mode Right in terminal mode" }
-        -- )
       end,
-      -- on_close = fun(t: Terminal), -- function to run when the terminal closes
-      -- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
-      -- on_stderr = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stderr
-      -- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
-      hide_numbers = true, -- hide the number column in toggleterm buffers
+      hide_numbers = true,
       shade_filetypes = {},
       shade_terminals = true,
-      -- shading_factor = '<number>', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
       start_in_insert = true,
-      insert_mappings = true, -- whether or not the open mapping applies in insert mode
-      terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
+      insert_mappings = true,
+      terminal_mappings = true,
       persist_size = true,
-      direction = "horizontal" or "vertical" or "window" or "float",
-      -- direction = "vertical",
-      close_on_exit = true, -- close the terminal window when the process exits
-      -- shell = vim.o.shell, -- change the default shell
-      -- This field is only relevant if direction is set to 'float'
-      -- float_opts = {
-      --   -- The border key is *almost* the same as 'nvim_open_win'
-      --   -- see :h nvim_open_win for details on borders however
-      --   -- the 'curved' border is a custom border type
-      --   -- not natively supported but implemented in this plugin.
-      --   border = 'single' or 'double' or 'shadow' or 'curved',
-      --   width = <value>,
-      --   height = <value>,
-      --   winblend = 3,
-      --   highlights = {
-      --     border = "Normal",
-      --     background = "Normal",
-      --   }
-      -- }
+      direction = "horizontal",
+      close_on_exit = true,
     },
   },
 }
