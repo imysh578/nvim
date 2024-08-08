@@ -41,7 +41,7 @@ keymap.set("n", "<C-A>", "ggVG", { desc = "Select All text in the current file" 
 keymap.set("n", "<leader>rr", ":%s//g<Left><Left>", { desc = "Find and Replace text in the current file" })
 
 -- TODO: Doesn't work in normal mode. These keymaps are conflicted with TmuxNavigation
-keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line up(n)" }) -- move line up(n)
-keymap.set("n", "<C-k>", ":m .-2<CR>==", { desc = "Move line down(n)" }) -- move line down(n)
+-- keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line up(n)" }) -- move line up(n)
+-- keymap.set("n", "<C-k>", ":m .-2<CR>==", { desc = "Move line down(n)" }) -- move line down(n)
 keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move line up(v)" }) -- move line up(v)
 keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move line down(v)" }) -- move line down(v)
