@@ -45,7 +45,7 @@ return {
           return vim.o.columns * 0.4
         end
       end,
-      open_mapping = [[<c-`\>]],
+      open_mapping = [[<c-\>]],
       on_open = function(term)
         vim.api.nvim_buf_set_keymap(
           term.bufnr,
