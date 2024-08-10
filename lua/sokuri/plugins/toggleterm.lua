@@ -5,7 +5,7 @@ return {
     cmd = { "ToggleTerm" },
     keys = {
       {
-        "<c-`>",
+        "<leader>tt",
         function()
           local count = vim.v.count1
           require("toggleterm").toggle(count, 0, nil, "float")
@@ -45,7 +45,7 @@ return {
           return vim.o.columns * 0.4
         end
       end,
-      open_mapping = [[<c-`>]],
+      open_mapping = [[<c-`\>]],
       on_open = function(term)
         vim.api.nvim_buf_set_keymap(
           term.bufnr,
