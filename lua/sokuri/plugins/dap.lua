@@ -37,7 +37,7 @@ return {
           program = function()
             local path = vim.fn.input({
               prompt = "Path to executable: ",
-              default = vim.fn.getcwd() .. "/target/aarch64-apple-darwin/debug/",
+              default = vim.fn.getcwd() .. "/",
               completion = "file",
             })
             return (path and path ~= "") and path or dap.ABORT
@@ -49,19 +49,19 @@ return {
         },
       }
 
-      -- -- Open dap-ui when debugging session starts
-      -- dap.listeners.after.event_initialized["dapui_config"] = function()
-      --   dapui.open()
-      -- end
-      --
-      -- -- Close dap-ui when debugging session ends
-      -- dap.listeners.before.event_terminated["dapui_config"] = function()
-      --   dapui.close()
-      -- end
-      --
-      -- dap.listeners.before.event_exited["dapui_config"] = function()
-      --   dapui.close()
-      -- end
+      -- Open dap-ui when debugging session starts
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+
+      -- Close dap-ui when debugging session ends
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
 
       -- Keybindings for DAP actions
       vim.keymap.set("n", "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
